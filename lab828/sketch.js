@@ -23,6 +23,7 @@ function setup() {
    //b2.run();
   // b3.run();
    //b4.run();
+   background(5, 5, 5);
    runBalls();
    }
    function loadBalls(n){

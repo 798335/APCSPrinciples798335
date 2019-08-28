@@ -1,14 +1,13 @@
 //Gabrielle Melmamed
-//August 21, 2019
+//August 28, 2019
 
 class Ball{
   constructor(x, y, dx, dy){
-    this.x = x;
-    this.y = y;
-    this.dx = dx;
-    this.dy = dy;
-    //this.clr = color(random(255), random(255), random(255));
-    this.width = random(10, 300);
+    this.loc = createVector(x,y);
+    this.vel = createVector(dx,dy);
+    this.acc = createVector(0,1);
+    this.clr = color(random(255), random(255), random(255));
+
   }
 
   run(){
@@ -18,32 +17,35 @@ class Ball{
   }
 
   checkEdges(){
-    if(this.x < 0){
-      this.dx = -this.dx;
+    if(this.loc.x < 0){
+      this.vel.x = -this.vel.x;
     }
-    if(this.x > width){
-      this.dx = -this.dx;
+    if(this.loc.x > width){
+      this.vel.x = -this.vel.x;
     }
-    if(this.y < 0){
-      this.dy = -this.dy;
+    if(this.loc.y < 0){
+      this.vel.y = -this.vel.y;
     }
-    if(this.y > height){
-      this.dy = -this.dy;
+    if(this.loc.y > height){
+      this.vel.y = -this.vel.y;
     }
   }
 
   update(){
-    this.clr = color(random(255), random(255), random(255));
-    this.x = this.x + this.dx;
-    this.y = this.y + this.dy;
+    //this.clr = color(random(255), random(255), random(255));
+    //this.x = this.x + this.dx;
+    //this.y = this.y + this.dy;
+    this.vel.add(this.acc);
+    this.loc.add(this.vel);
+
   }
 
   render(){
     fill(this.clr);
-    ellipse(this.x, this.y, this.width, this.width);
-    fill(this.clr);
-    rect(this.x, this.y, this.width, this.width);
-    fill(this.clr);
-    triangle(this.x, this.y, 50, 50, 100, 100);
+    ellipse(this.loc.x, this.loc.y, 11, 11);
+    //fill(this.clr);
+    //rect(this.x, this.y, this.width, this.width);
+    //fill(this.clr);
+    //triangle(this.x, this.y, 50, 50, 100, 100);
   }
 }// end ball class
