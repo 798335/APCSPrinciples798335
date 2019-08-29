@@ -12,7 +12,7 @@ function setup() {
   // b2 = new Ball(random(width), random(height), random(-5,5), random(-5,5));
    //b3 = new Ball(random(width), random(height), random(-5,5), random(-5,5));
   //b4 = new Ball(random(width), random(height), random(-5,5), random(-5,5));
-  loadBalls(110);
+  loadBalls(200);
 
 
  }
