@@ -2,11 +2,12 @@
 //August 28, 2019
 
 class Ball{
-  constructor(x, y, dx, dy){
+  constructor(x, y, dx, dy, id){
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,1);
     this.clr = color(random(255), random(255), random(255));
+    this.id = id;
 
   }
 
@@ -35,8 +36,19 @@ class Ball{
     //this.clr = color(random(255), random(255), random(255));
     //this.x = this.x + this.dx;
     //this.y = this.y + this.dy;
-    this.vel.add(this.acc);
-    this.loc.add(this.vel);
+    var distToMainBall;
+    if(this.id >= 0){
+      this.acc = p5.Vector.sub(this.loc, mainBall.loc);
+      this.acc.normalize();
+      this.acc.mult(0,1);
+    }
+    if(distToMainBall < 150){
+      this.acc = p5.Vector.sub(this.loc, mainBall.loc);
+      this.acc.normalize();
+      this.acc.mult(0.5);
+    }
+    //this.vel.add(this.acc);
+    //this.loc.add(this.vel);
 
   }
 
