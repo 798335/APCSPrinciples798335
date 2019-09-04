@@ -29,6 +29,7 @@ function setup() {
    }
 
   function loadBalls(n){
+    mainBall = Ball(100, 100, 100, 100, -1);
      for(var i = 0; i < n; i++){
        balls[i] = new Ball(random(width), random(height), random(-5,5), random(-5,5));
      }
