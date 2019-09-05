@@ -20,9 +20,9 @@ function setup() {
 
  //  The draw function is called @ 30 fps
  function draw() {
-  // b1.run();
+  //b1.run();
   //b2.run();
-  // b3.run();
+  //b3.run();
   //b4.run();
    background(5, 5, 5, 5);
    runBalls();
