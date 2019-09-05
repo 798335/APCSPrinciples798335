@@ -10,7 +10,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
 
-  loadBalls(100);
+  loadBalls(200);
 
 }
 
