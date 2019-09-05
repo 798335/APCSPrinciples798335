@@ -9,20 +9,20 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
 
-  loadBalls(70);
+  loadBalls(100);
 
 }
 
 
 function draw() {
-background(5, 5, 5, 5); //makes the background less transparent
+background(5, 5, 5, 60); //makes the background less transparent
   runBalls();
 }
 
 function loadBalls(x){
-  mainBall = new Ball(random(width/2), random(height/2), random (-.4,.4), random(-.4,.4), 1); //add main ball
+  mainBall = new Ball(random(width/2), random(height/2), random (-2,2), random(-2, 2), 1); //add main ball
   for(var i = 0; i < x; i++){
-    balls[i]=new Ball(random(width), random(height), random(-5,5), random(-5,5), i+3);
+    balls[i] = new Ball(random(width), random(height), random(-5,5), random(-5,5), i + 3);
   }
 }
 
