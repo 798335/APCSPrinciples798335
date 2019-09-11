@@ -44,7 +44,7 @@ render(){
   //this.angle + 0.1;
   push();
   translate(this.loc.x, this.loc.y);
-  rotate(this.angle);
+  rotate(this.angle.heading);
   triangle(-5, 8, 5, 8, 0, -8);
   pop();
 }
