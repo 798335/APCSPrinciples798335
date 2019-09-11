@@ -36,16 +36,38 @@ update(){
   this.vel.add(this.acc);
   this.vel.limit(2);
   this.loc.add(this.vel);
+  var distToMainBall;
+  var distToMainBall2;
+  if(this.id > 2){
+  distToMainBall = this.loc.dist(mainBall.loc);
+  distToMainBall2 = this.loc.dist(mainBall2.loc);
+
+
+   if(distToMainBall < 250){
+     //add attraction to the ball
+     this.acc = p5.Vector.sub(mainBall.loc, this.loc);
+     this.acc.normalize();
+     this.acc.mult(0.1);
+   }
+
+   if(distToMainBall2 < 150){
+     // add repulsion to the ball
+     this.acc = p5.Vector.sub(this.loc, mainBall2.loc);
+     this.acc.normalize();
+     this.acc.mult(0.5);
+}
+}
+
 }
 
 render(){
   fill(this.clr);
-  this.angle = this.loc.heading();
+  this.angle = this.loc.heading;
   //this.angle + 0.1;
   push();
-  translate(this.loc.x, this.loc.y);
-  rotate(this.angle.heading);
-  triangle(-5, 8, 5, 8, 0, -8);
+    translate(this.loc.x, this.loc.y);
+    rotate(this.angle);
+    triangle(-5, 8, 5, 8, 0, -8);
   pop();
 }
 

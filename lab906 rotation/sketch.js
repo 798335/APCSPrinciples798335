@@ -17,7 +17,7 @@ function setup() {
 
 
 function draw() {
-  background(5, 5, 5, 60); //makes the background less transparent
+  background(5, 5, 5, 25); //makes the background less transparent
   runObjects();
 }
 
