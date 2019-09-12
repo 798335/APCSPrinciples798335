@@ -62,7 +62,7 @@ update(){
 
 render(){
   fill(this.clr);
-  this.angle = this.heading;
+  this.angle = this.acc.heading();
   //this.angle + 0.1;
   push();
     translate(this.loc.x, this.loc.y);

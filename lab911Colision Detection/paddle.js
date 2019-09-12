@@ -7,6 +7,7 @@ class Paddle {
 
   run() {
     this.render();
+    this.update();
 
   }
   render() {
@@ -14,4 +15,8 @@ class Paddle {
     rect(this.loc.x, this.loc.y, this.loc2.x, this.loc2.y);
   }
 
+  update() {
+    var mouseLoc = createVector(mouseX, 600);
+    this.loc = p5.Vector.lerp(this.loc, mouseLoc, 0.09);
+  }
 }

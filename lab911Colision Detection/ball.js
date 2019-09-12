@@ -41,38 +41,7 @@ class Ball {
 
   }
   update(){
-    //var distToMainBall;
-    //var distToMainBall2;
-    //if(this.id > 2){
-    //distToMainBall = this.loc.dist(mainBall.loc);
-    //distToMainBall2 = this.loc.dist(mainBall2.loc);
 
-     //if(distToMainBall < 300){
-       //add attraction to the ball
-       //this.acc = p5.Vector.sub(mainBall.loc, this.loc);
-       //this.acc.normalize();
-       //this.acc.mult(0.1);
-     //}
-     //if(distToMainBall2 < 200){
-       // add repulsion to the ball
-       //this.acc = p5.Vector.sub(this.loc, mainBall2.loc);
-       //this.acc.normalize();
-       //this.acc.mult(0.5);
-     //}
-
-     //if(distToMainBall2 < 300){
-       //add attraction to the ball
-       //this.acc = p5.Vector.sub(mainBall2.loc, this.loc);
-       //this.acc.normalize();
-       //this.acc.mult(0.1);
-     //}
-     //if(distToMainBall2 < 200){ // add repulsion to the ball
-       //this.acc = p5.Vector.sub(this.loc, mainBall2.loc);
-       //this.acc.normalize();
-       //this.acc.mult(0.5);
-     //}
-
-    //}
     this.vel.limit(5);
      this.vel.add(this.acc);
    this.loc.add(this.vel);
@@ -91,13 +60,14 @@ class Ball {
 
   isColliding() {
     if(this.loc.x > paddle.loc.x &&
-        this.loc.x < paddle.loc.x+w &&
+        this.loc.x < paddle.loc.x+paddlewidth &&
         this.loc.y > paddle.loc.y &&
-        this.loc.y < paddle.loc.y+h)
+        this.loc.y < paddle.loc.y+paddleheight)
         {
-          return true;
+          //return true;
+          this.vel.y = -this.vel.y
         } else {
-          return false;
+          //return false;
         }
   }
 }//  +++++++++++++++++++++++++++++++++++  End Ball Class
