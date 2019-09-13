@@ -4,11 +4,6 @@
 //  The setup function function is called once when your program begins
 var paddle;
 var ball;
-var paddlewidth;
-var paddleheight;
-paddle = Paddle;
-paddlewidth = Paddle.loc2.x;
-paddleheight = Paddle.loc2.y;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -27,11 +22,11 @@ function draw() {
 }
 
 function drawPaddle() {
-  paddle = new Paddle(250, 500, 300, 100);
+  paddle = new Paddle(250, 500, 300, 25);
 }
 
 function drawBall() {
-  ball = new Ball(400, 50, 50, 50);
+  ball = new Ball(random(25, 775), 26, 26, 26);
 }
 
 function runPaddle() {
