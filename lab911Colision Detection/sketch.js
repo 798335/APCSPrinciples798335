@@ -6,8 +6,9 @@ var paddle;
 var ball;
 var paddlewidth;
 var paddleheight;
-paddlewidth = paddle.loc2.x;
-paddleheight = paddle.loc2.y;
+paddle = Paddle;
+paddlewidth = Paddle.loc2.x;
+paddleheight = Paddle.loc2.y;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);

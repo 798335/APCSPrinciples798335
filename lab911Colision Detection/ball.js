@@ -67,6 +67,7 @@ class Ball {
           //return true;
           this.vel.y = -this.vel.y
         } else {
+          this.vel.y = this.vel.y
           //return false;
         }
   }
