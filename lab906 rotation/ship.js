@@ -33,6 +33,7 @@ class Ship {
   }
 
 update(){
+  this.angle = this.acc.heading() + PI/2;
   this.vel.add(this.acc);
   this.vel.limit(2);
   this.loc.add(this.vel);
@@ -62,7 +63,7 @@ update(){
 
 render(){
   fill(this.clr);
-  this.angle = this.acc.heading();
+
   //this.angle + 0.1;
   push();
     translate(this.loc.x, this.loc.y);
