@@ -70,10 +70,10 @@ class Ball {
           this.vel.y = this.vel.y;
           //return false;
         }
-      //if(this.loc.x > paddle.loc.x &&
-        //this.loc.x < paddle.loc.x + paddle.w &&
-        //this.loc.y > paddle.loc.y + paddle.h) {
-          //balls.pop();
-        //}
+      if(this.loc.x > paddle.loc.x &&
+        this.loc.x < paddle.loc.x + paddle.w &&
+        this.loc.y > paddle.loc.y + paddle.h) {
+          balls.pop();
+        }
   }
 }//  +++++++++++++++++++++++++++++++++++  End Ball Class
