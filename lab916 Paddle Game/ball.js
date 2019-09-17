@@ -61,7 +61,7 @@ class Ball {
   isColliding() {
     if(this.loc.x + 13 > paddle.loc.x &&
         this.loc.x - 13 < paddle.loc.x + paddle.w &&
-        this.loc.y + 13 > paddle.loc.y &&
+        //this.loc.y + 13 > paddle.loc.y &&
         this.loc.y - 13 < paddle.loc.y + paddle.h)
         {
           //return true;
@@ -69,6 +69,11 @@ class Ball {
         } else {
           this.vel.y = this.vel.y;
           //return false;
+        }
+      if(this.loc.x + 13 > paddle.loc.x &&
+        this.loc.x - 13 < paddle.loc.x + paddle.w &&
+        this.loc.y > paddle.loc.y + paddle.h) {
+          balls.pop();
         }
   }
 }//  +++++++++++++++++++++++++++++++++++  End Ball Class
