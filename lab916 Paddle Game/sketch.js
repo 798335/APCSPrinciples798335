@@ -4,30 +4,69 @@
 //  The setup function function is called once when your program begins
 var paddle;
 var balls = [];
+var gameState = 1;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  drawPaddle();
-  loadBalls(10);
+  //drawPaddle();
+  //loadBalls(10);
 
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   background(5, 5, 5, 50);
+  if (gameState === 1){
+    startGame();
+  } else if(gameState === 2){
+    playGame();
+  } else if(gameState === 3){
+    endGame();
+  }
   runPaddle();
   runBalls();
 }
 
+function startGame() {
+  textSize(90);
+  fill(255, 255, 255);
+  text('The Paddle Game', 30, 300);
+  rect(120, 600, 100, 100);
+  rect(270, 600, 100, 100);
+  rect(420, 600, 100, 100);
+  rect(570, 600, 100, 100);
+  textSize(25);
+  fill(2550, 0, 0);
+  text('easy', 145, 655);
+  text('medium', 275, 655);
+  text('hard', 445, 655);
+  function mousePressed() {
+    if(mouseX > 120 &&
+      mouseX < 220 &&
+      mouseY > 600 &&
+      mouseY < 700) {
+        easyMode();
+      }
+    if(mouseX > 270 &&
+      mouseX < 370 &&
+      mouseY > 600 &&
+      mouseY < 700) {
+        mediumMode();
+      }
+    if
+  }
+
+}
+
 function drawPaddle() {
-  paddle = new Paddle(250, 700, 300, 100);
+  paddle = new Paddle(250, 700, 300, 25);
 }
 
 function loadBalls(x) {
   for(var i = 0; i < x; i++){
-    balls[i] = new Ball(random(width), random(height), random(-5,5), random(-5,5));
+    balls[i] = new Ball(random(width), random(height), 5, 5);
   }
 }
 
