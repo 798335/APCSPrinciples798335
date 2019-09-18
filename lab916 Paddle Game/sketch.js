@@ -31,7 +31,7 @@ function startGame() {
 
 function mousePressed() {
   gameMode();
-  //remove();
+  gameState = gameState + 1;
 }
 
 //  The draw function is called @ 30 fps
@@ -40,7 +40,7 @@ function draw() {
   if (gameState === 1){
     startGame();
   } else if(gameState === 2){
-    playGame();
+    gameMode();
   } else if(gameState === 3){
     endGame();
   }

@@ -37,8 +37,6 @@ class Ball {
       //this.loc.y = 0;
 
     }
-
-
   }
   update(){
 
