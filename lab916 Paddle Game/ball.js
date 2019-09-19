@@ -1,6 +1,5 @@
 //Gabrielle Melmamed
 //August 28, 2019
-
 class Ball {
   constructor(x, y, dx, dy){
    this.loc = createVector(x, y);
@@ -59,7 +58,7 @@ class Ball {
   isColliding() {
     if(this.loc.x + 13 > paddle.loc.x &&
         this.loc.x - 13 < paddle.loc.x + paddle.w &&
-        //this.loc.y + 13 > paddle.loc.y &&
+        this.loc.y + 13 > paddle.loc.y &&
         this.loc.y - 13 < paddle.loc.y + paddle.h)
         {
           //return true;
@@ -68,10 +67,26 @@ class Ball {
           this.vel.y = this.vel.y;
           //return false;
         }
-      if(this.loc.x > paddle.loc.x &&
-        this.loc.x < paddle.loc.x + paddle.w &&
-        this.loc.y > paddle.loc.y + paddle.h) {
-          balls.pop();
-        }
+      //if(this.loc.x > paddle.loc.x &&
+        //this.loc.x < paddle.loc.x + paddle.w &&
+        //this.loc.y > paddle.loc.y + paddle.h) {
+          //balls.pop();
+        //}
   }
+
+  //isOver() {
+    //if(this.loc.x + 13 > paddle.loc.x &&
+        //this.loc.x - 13 < paddle.loc.x + paddle.w &&
+        //this.loc.y + 13 > paddle.loc.y) {
+          //this.vel.y = -this.vel.y
+    //}
+  //}
+
+  //isUnder() {
+    //if(this.loc.x + 13 > paddle.loc.x &&
+      //this.loc.x - 13 < paddle.loc.x + paddle.w &&
+      //this.loc.y - 13 > paddle.loc.y + paddle.h) {
+        //return true;
+      //}
+  //}
 }//  +++++++++++++++++++++++++++++++++++  End Ball Class
