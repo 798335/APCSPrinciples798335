@@ -63,6 +63,7 @@ class Ball {
         {
           //return true;
           this.vel.y = -this.vel.y;
+          score++;
         } else {
           this.vel.y = this.vel.y;
           //return false;

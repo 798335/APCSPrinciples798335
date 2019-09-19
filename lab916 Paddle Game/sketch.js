@@ -5,12 +5,14 @@
 var paddle;
 var balls = [];
 var gameState = 1;
+var score = 0;
+var gameLevel;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  drawPaddle();
+  //drawPaddle();
   //loadBalls(10);
 
 }
@@ -27,6 +29,33 @@ function startGame() {
   text('easy', 145, 655);
   text('medium', 275, 655);
   text('hard', 445, 655);
+  if (mouseIsPressed&&
+    mouseX > 120 &&
+      mouseX < 220 &&
+      mouseY > 600 &&
+      mouseY < 700) {
+        clear();
+        gameState=2;
+        gameLevel='easy';
+      }
+    if (mouseIsPressed&&
+      mouseX > 270 &&
+        mouseX < 370 &&
+        mouseY > 600 &&
+        mouseY < 700) {
+          clear();
+          gameState=2;
+          gameLevel='medium';
+        }
+    if (mouseIsPressed&&
+      mouseX > 420 &&
+        mouseX < 520 &&
+        mouseY > 600 &&
+        mouseY < 700) {
+          clear();
+          gameState=2;
+          gameLevel='hard';
+        }
 }
 
 //if(mousePressed &&
@@ -36,10 +65,10 @@ function startGame() {
     //mouseY < 700) {
       //easyMode();
     //}
-function mousePressed() {
-  gameMode();
-  gameState = gameState + 1;
-}
+//function mousePressed() {
+  //gameMode();
+  //gameState = gameState + 1;
+//}
 
 //  The draw function is called @ 30 fps
 function draw() {
@@ -51,8 +80,7 @@ function draw() {
   } else if(gameState === 3){
     endGame();
   }
-  runPaddle();
-  runBalls();
+  
 }
 
 function drawPaddle() {
@@ -65,10 +93,6 @@ function loadBalls(x) {
   }
 }
 
-function runPaddle() {
-  paddle.run();
-}
-
 function runBalls() {
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
@@ -76,24 +100,24 @@ function runBalls() {
 }
 
 function gameMode(){
-  if (mouseX > 120 &&
-      mouseX < 220 &&
-      mouseY > 600 &&
-      mouseY < 700) {
-        easyMode();
-      }
-    if (mouseX > 270 &&
-        mouseX < 370 &&
-        mouseY > 600 &&
-        mouseY < 700) {
-          mediumMode();
-        }
-    if (mouseX > 420 &&
-        mouseX < 520 &&
-        mouseY > 600 &&
-        mouseY < 700) {
-            hardMode();
-        }
+  drawPaddle();
+  paddle.run();
+  fill(255, 0, 0);
+  textSize(35);
+  text('score:' + score, 30, 30);
+  if(gameLevel==='easy'){
+    loadBalls(10);
+    //easyMode();
+  }
+  if(gameLevel==='medium'){
+    loadBalls(5);
+    //mediumMode();
+  }
+  if(gameLevel==='hard'){
+    loadBalls(2);
+    //hardMode();
+  }
+  runBalls();
 }
 
 //function gameMode() {
