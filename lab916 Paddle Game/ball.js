@@ -49,7 +49,7 @@ class Ball {
   render(){
     fill(this.clr);
     //if (this.id < 3 ){
-      ellipse (this.loc.x, this.loc.y, 26, 26);
+    ellipse (this.loc.x, this.loc.y, 26, 26);
     //} else {
     //ellipse(this.loc.x, this.loc.y, 15, 15);
     //}
