@@ -16,10 +16,10 @@ function setup() {
   //loadBalls(10);
 }
 
-function drawPaddle() {
-  paddle = new Paddle(250, 700, 300, 25);
-  Paddle.run;
-}
+//function drawPaddle() {
+  //paddle = new Paddle(250, 700, 300, 25);
+  //Paddle.run();
+//}
 
 function startGame() {
   textSize(90);
@@ -35,7 +35,6 @@ function startGame() {
   text('medium', 275, 655);
   text('hard', 445, 655);
   if(mouseIsPressed) {
-    gameState = 2;
     if(mouseX > 120 &&
       mouseX < 220 &&
       mouseY > 600 &&
@@ -54,7 +53,21 @@ function startGame() {
       mouseY < 700) {
         gameLevel = 'hard';
     }
+    if(gameLevel === 'easy'){
+      loadBalls(10);
+      //easyMode();
+    }
+    if(gameLevel==='medium'){
+      loadBalls(5);
+      //mediumMode();
+    }
+    if(gameLevel==='hard'){
+      loadBalls(2);
+      //hardMode();
+    }
+    gameState = 2;
   }
+}
   //if (mouseIsPressed&&
     //mouseX > 120 &&
       //mouseX < 220 &&
@@ -85,32 +98,13 @@ function startGame() {
           //gameLevel = 'hard';
           //gameMode();
         //}
-}
 
 function gameMode(){
-  if (gameState === 2) {
-    drawPaddle();
-    //Paddle.run;
-    //paddle = new Paddle(250, 700, 300, 25)
-    //Paddle.run;
     fill(255, 0, 0);
     textSize(35);
     text('score:' + score, 30, 30);
-    if(gameLevel === 'easy'){
-      loadBalls(10);
-      //runBalls();
-      //easyMode();
-    } else if(gameLevel==='medium'){
-      loadBalls(5);
-      //runBalls();
-      //mediumMode();
-    } else if(gameLevel==='hard'){
-      loadBalls(2);
-      //runBalls();
-      //hardMode();
+    runBalls();
     }
-    }
-  }
 
 //  The draw function is called @ 30 fps
 function draw() {
@@ -126,16 +120,17 @@ function draw() {
 }
 
 function loadBalls(x) {
+  paddle = new Paddle(250, 700, 300, 25);
   for(var i = 0; i < x; i++){
     balls[i] = new Ball(random(width), random(height), 5, 5);
-    //balls[i].run();
   }
 }
 
-//function runBalls(x) {
-  //for(var i = 0; i < balls.length; i++){
-    //balls[i].run();
-//}
+function runBalls(x) {
+  paddle.run();
+  for(var i = 0; i < balls.length; i++){
+    balls[i].run();
+}
 //function gameMode() {
   //easyMode();
   //mediumMode();
@@ -164,8 +159,8 @@ function loadBalls(x) {
   //runBalls();
 //}
 
-for(var i = balls.length - 1; i >= 0; i--) {
-  if(balls[i].isColliding()) {
-    balls.splice(i,1);
-  }
+//for(var i = balls.length - 1; i >= 0; i--) {
+  //if(balls[i].isColliding()) {
+    //balls.splice(i,1);
+  //}
 }

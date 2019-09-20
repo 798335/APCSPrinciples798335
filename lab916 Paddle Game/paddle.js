@@ -1,8 +1,8 @@
 class Paddle {
   constructor(x, y, w, h) {
     this.loc = createVector(x, y);
-    this.w = 300;
-    this.h = 25;
+    this.w = w;
+    this.h = h;
     //this.loc2 = createVector(w, h);
     this.clr = color(random(255), random(255), random(255));
   }

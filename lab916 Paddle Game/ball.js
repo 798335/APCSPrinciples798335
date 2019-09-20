@@ -40,7 +40,7 @@ class Ball {
   update(){
 
     this.vel.limit(5);
-     this.vel.add(this.acc);
+    this.vel.add(this.acc);
    this.loc.add(this.vel);
 
 
