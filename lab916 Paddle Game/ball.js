@@ -38,7 +38,18 @@ class Ball {
     }
   }
   update(){
-
+    for(var i = balls.length - 1; i >= 0; i--) {
+      if(balls[i].isColliding()){
+        if(this.vel.y < 0){
+          //this.vel.y = -this.vel.y;
+          score = score + 1;
+          this.vel.y = -this.vel.y;
+        }
+        if(this.vel.y > 0){
+          balls.splice(i, 1);
+        }
+      }
+    }
     this.vel.limit(5);
     this.vel.add(this.acc);
    this.loc.add(this.vel);
@@ -61,19 +72,21 @@ class Ball {
         this.loc.y + 13 > paddle.loc.y &&
         this.loc.y - 13 < paddle.loc.y + paddle.h)
         {
-          //return true;
-          this.vel.y = -this.vel.y;
+          return true;
+          //this.vel.y = this.vel.y * (-1);
           score++;
         } else {
-          this.vel.y = this.vel.y;
-          //return false;
+          //this.vel.y = this.vel.y;
+          return false;
+      }
         }
-      //if(this.loc.x > paddle.loc.x &&
-        //this.loc.x < paddle.loc.x + paddle.w &&
-        //this.loc.y > paddle.loc.y + paddle.h) {
-          //balls.pop();
-        //}
-  }
+
+  //if(this.vel.y < 0){
+    //for(var i = balls.length - 1; i >= 0; i--) {
+      //if(balls[i].isColliding()) {
+        //balls.splice(i,1);
+      //}
+    //}
 
   //isOver() {
     //if(this.loc.x + 13 > paddle.loc.x &&

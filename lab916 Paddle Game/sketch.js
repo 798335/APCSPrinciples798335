@@ -67,37 +67,8 @@ function startGame() {
     }
     gameState = 2;
   }
-}
-  //if (mouseIsPressed&&
-    //mouseX > 120 &&
-      //mouseX < 220 &&
-      //mouseY > 600 &&
-      //mouseY < 700) {
-        //clear();
-        //gameState = 2;
-        //gameLevel = 'easy';
-        //gameMode();
-      //}
-    //if (mouseIsPressed&&
-      //mouseX > 270 &&
-        //mouseX < 370 &&
-        //mouseY > 600 &&
-        //mouseY < 700) {
-          //clear();
-          //gameState = 2;
-          //gameLevel = 'medium';
-          //gameMode();
-        //}
-    //if (mouseIsPressed&&
-      //mouseX > 420 &&
-        //mouseX < 520 &&
-        //mouseY > 600 &&
-        //mouseY < 700) {
-          //clear();
-          //gameState = 2;
-          //gameLevel = 'hard';
-          //gameMode();
-        //}
+  }
+
 
 function gameMode(){
     fill(255, 0, 0);
@@ -130,37 +101,5 @@ function runBalls(x) {
   paddle.run();
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
-}
-//function gameMode() {
-  //easyMode();
-  //mediumMode();
-  //hardMode();
-//}
-
-//function easyMode() {
-  //drawPaddle();
-  //loadBalls(10);
-  //runPaddle();
-  //runBalls();
-//}
-
-
-//function mediumMode() {
-  //drawPaddle();
-  //loadBalls(5);
-  //runPaddle();
-  //runBalls();
-//}
-
-//function hardMode() {
-  //drawPaddle();
-  //loadBalls(2);
-  //runPaddle();
-  //runBalls();
-//}
-
-//for(var i = balls.length - 1; i >= 0; i--) {
-  //if(balls[i].isColliding()) {
-    //balls.splice(i,1);
-  //}
+  }
 }
