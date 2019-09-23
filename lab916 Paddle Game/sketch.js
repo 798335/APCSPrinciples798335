@@ -58,11 +58,11 @@ function startGame() {
       //easyMode();
     }
     if(gameLevel==='medium'){
-      loadBalls(5);
+      loadBalls(50);
       //mediumMode();
     }
     if(gameLevel==='hard'){
-      loadBalls(2);
+      loadBalls(200);
       //hardMode();
     }
     gameState = 2;
@@ -75,7 +75,20 @@ function gameMode(){
     textSize(35);
     text('score:' + score, 30, 30);
     runBalls();
+    if(mouseIsPressed) {
+      if(mouseX === paddle.loc.x &&
+        mouseY > paddle.loc.y) {
+          gameState = 3;
+        }
     }
+    }
+
+function endGame() {
+    clear();
+    fill(255, 255, 255);
+    fill(255, 255, 255);
+    rect(500, 500, 100, 100);
+}
 
 //  The draw function is called @ 30 fps
 function draw() {

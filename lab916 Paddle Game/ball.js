@@ -40,20 +40,33 @@ class Ball {
   update(){
     for(var i = balls.length - 1; i >= 0; i--) {
       if(balls[i].isColliding()){
-        if(this.vel.y < 0){
-          //this.vel.y = -this.vel.y;
-          score = score + 1;
-          this.vel.y = -this.vel.y;
-        }
         if(this.vel.y > 0){
+          score = score++;
+        }
+        if(this.vel.y < 0) {
           balls.splice(i, 1);
         }
       }
     }
-    this.vel.limit(5);
+
+    this.vel.limit(10);
     this.vel.add(this.acc);
    this.loc.add(this.vel);
 
+   if(gameLevel === 'easy') {
+     this.vel.x = this.vel.x * 1;
+     this.vel.y = this.vel.y * 1;
+   }
+
+   if(gameLevel === 'medium') {
+     this.vel.x = this.vel.x * 2;
+     this.vel.y = this.vel.y * 2;
+   }
+
+   if(gameLevel === 'hard') {
+     this.vel.x = this.vel.x * 3;
+     this.vel.y = this.vel.y * 3;
+   }
 
   }
 
@@ -73,13 +86,11 @@ class Ball {
         this.loc.y - 13 < paddle.loc.y + paddle.h)
         {
           return true;
-          //this.vel.y = this.vel.y * (-1);
-          score++;
+          //this.vel.y = -this.vel.y;
         } else {
-          //this.vel.y = this.vel.y;
           return false;
-      }
         }
+      }
 
   //if(this.vel.y < 0){
     //for(var i = balls.length - 1; i >= 0; i--) {
