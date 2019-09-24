@@ -76,18 +76,26 @@ function gameMode(){
     text('score:' + score, 30, 30);
     runBalls();
     if(mouseIsPressed) {
-      if(mouseX === paddle.loc.x &&
-        mouseY > paddle.loc.y) {
+      if(mouseX > 300 &&
+        mouseX < 500 &&
+        mouseY > 300 &&
+        mouseY < 500) {
           gameState = 3;
         }
     }
-    }
+  }
 
 function endGame() {
     clear();
-    fill(255, 255, 255);
-    fill(255, 255, 255);
-    rect(500, 500, 100, 100);
+    background(5, 5, 5);
+    fill(50, 50, 50);
+    rect(500, 110, 100, 100);
+    rect(200, 110, 100, 100);
+    textSize(18);
+    fill(0, 255, 0);
+    text('Play Again?', 505, 150);
+    text('End Game?', 205, 150);
+    //add code to change back to startgame or exit the game
 }
 
 //  The draw function is called @ 30 fps
