@@ -40,14 +40,12 @@ function startGame() {
       mouseY > 600 &&
       mouseY < 700) {
         gameLevel = 'easy';
-      }
-    if(mouseX > 270 &&
+      }else if(mouseX > 270 &&
       mouseX < 370 &&
       mouseY > 600 &&
       mouseY < 700) {
         gameLevel = 'medium';
-    }
-    if(mouseX > 420 &&
+    }else if(mouseX > 420 &&
       mouseX < 520 &&
       mouseY > 600 &&
       mouseY < 700) {
@@ -75,14 +73,18 @@ function gameMode(){
     textSize(35);
     text('score:' + score, 30, 30);
     runBalls();
-    if(mouseIsPressed) {
-      if(mouseX > 300 &&
-        mouseX < 500 &&
-        mouseY > 300 &&
-        mouseY < 500) {
-          gameState = 3;
-        }
-    }
+      if (score === 10 &&
+        gameLevel === 'easy') {
+        gameState = 3;
+      }
+      if (score === 50 &&
+        gameLevel === 'medium') {
+        gameState = 3;
+      }
+      if (score === 200 &&
+        gameLevel === 'hard') {
+        gameState = 3;
+      }
   }
 
 function endGame() {
@@ -95,6 +97,23 @@ function endGame() {
     fill(0, 255, 0);
     text('Play Again?', 505, 150);
     text('End Game?', 205, 150);
+    if(mouseIsPressed) {
+      if(mouseX > 500 &&
+        mouseX < 600 &&
+        mouseY > 110 &&
+        mouseY < 210) {
+          gameState = 1;
+        }
+      if(mouseX > 200 &&
+        mouseX < 300 &&
+        mouseY > 110 &&
+        mouseY < 210) {
+          clear();
+          fill(0, 0, 0);
+          textSize(45);
+          text('THE GAME IS OVER!', 300, 300);
+        }
+    }
     //add code to change back to startgame or exit the game
 }
 

@@ -41,10 +41,8 @@ class Ball {
     for(var i = balls.length - 1; i >= 0; i--) {
       if(balls[i].isColliding()){
         if(this.vel.y > 0){
-          score = score++;
-        }
-        if(this.vel.y < 0) {
           balls.splice(i, 1);
+          score = score + 1;
         }
       }
     }
@@ -64,8 +62,8 @@ class Ball {
    }
 
    if(gameLevel === 'hard') {
-     this.vel.x = this.vel.x * 3;
-     this.vel.y = this.vel.y * 3;
+     this.vel.x = this.vel.x * 2.5;
+     this.vel.y = this.vel.y * 2.5;
    }
 
   }
@@ -91,27 +89,4 @@ class Ball {
           return false;
         }
       }
-
-  //if(this.vel.y < 0){
-    //for(var i = balls.length - 1; i >= 0; i--) {
-      //if(balls[i].isColliding()) {
-        //balls.splice(i,1);
-      //}
-    //}
-
-  //isOver() {
-    //if(this.loc.x + 13 > paddle.loc.x &&
-        //this.loc.x - 13 < paddle.loc.x + paddle.w &&
-        //this.loc.y + 13 > paddle.loc.y) {
-          //this.vel.y = -this.vel.y
-    //}
-  //}
-
-  //isUnder() {
-    //if(this.loc.x + 13 > paddle.loc.x &&
-      //this.loc.x - 13 < paddle.loc.x + paddle.w &&
-      //this.loc.y - 13 > paddle.loc.y + paddle.h) {
-        //return true;
-      //}
-  //}
 }//  +++++++++++++++++++++++++++++++++++  End Ball Class
