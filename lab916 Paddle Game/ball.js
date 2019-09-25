@@ -40,9 +40,11 @@ class Ball {
   update(){
     for(var i = balls.length - 1; i >= 0; i--) {
       if(balls[i].isColliding()){
-        if(this.vel.y > 0){
+        if(this.vel.y < 0) {
           balls.splice(i, 1);
           score = score + 1;
+      } else {
+          moreBalls = 'yes';
         }
       }
     }

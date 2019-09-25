@@ -7,6 +7,7 @@ var balls = [];
 var gameState = 1;
 var score = 0;
 var gameLevel;
+var moreBalls;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -22,6 +23,8 @@ function setup() {
 //}
 
 function startGame() {
+  clear();
+  background(5, 5, 5);
   textSize(90);
   fill(255, 255, 255);
   text('The Paddle Game', 30, 300);
@@ -53,6 +56,9 @@ function startGame() {
     }
     if(gameLevel === 'easy'){
       loadBalls(10);
+      if(moreBalls === 'yes') {
+      loadBalls(20);
+      }
       //easyMode();
     }
     if(gameLevel==='medium'){
@@ -90,6 +96,9 @@ function gameMode(){
 function endGame() {
     clear();
     background(5, 5, 5);
+    textSize(100);
+    fill(255, 10, 10);
+    text('YOU WIN!!!', 130, 500);
     fill(50, 50, 50);
     rect(500, 110, 100, 100);
     rect(200, 110, 100, 100);
@@ -97,24 +106,36 @@ function endGame() {
     fill(0, 255, 0);
     text('Play Again?', 505, 150);
     text('End Game?', 205, 150);
-    if(mouseIsPressed) {
-      if(mouseX > 500 &&
+      if(mouseIsPressed &&
+        mouseX > 500 &&
         mouseX < 600 &&
         mouseY > 110 &&
         mouseY < 210) {
           gameState = 1;
         }
-      if(mouseX > 200 &&
+
+      if(mouseIsPressed &&
+        mouseX > 200 &&
         mouseX < 300 &&
         mouseY > 110 &&
         mouseY < 210) {
-          clear();
-          fill(0, 0, 0);
-          textSize(45);
-          text('THE GAME IS OVER!', 300, 300);
+          gameState = 4;
+          //clear();
+          //background(5, 5, 5);
+          //fill(255, 0, 0);
+          //textSize(70);
+          //text('THE GAME IS OVER!', 200, 300);
         }
-    }
     //add code to change back to startgame or exit the game
+}
+
+function playAgain() {
+  clear();
+  background(5, 5, 5);
+  fill(255, 0, 0);
+  textSize(70);
+  text('THE GAME', 200, 400);
+  text('IS OVER!', 220, 500);
 }
 
 //  The draw function is called @ 30 fps
@@ -126,6 +147,8 @@ function draw() {
     gameMode();
   } else if(gameState === 3){
     endGame();
+  } else if(gameState === 4) {
+    playAgain();
   }
 
 }
