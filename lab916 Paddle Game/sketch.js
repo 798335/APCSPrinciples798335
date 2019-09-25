@@ -7,7 +7,6 @@ var balls = [];
 var gameState = 1;
 var score = 0;
 var gameLevel;
-var moreBalls;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -56,9 +55,6 @@ function startGame() {
     }
     if(gameLevel === 'easy'){
       loadBalls(10);
-      if(moreBalls === 'yes') {
-      loadBalls(20);
-      }
       //easyMode();
     }
     if(gameLevel==='medium'){
@@ -71,7 +67,7 @@ function startGame() {
     }
     gameState = 2;
   }
-  }
+}
 
 
 function gameMode(){
@@ -111,7 +107,11 @@ function endGame() {
         mouseX < 600 &&
         mouseY > 110 &&
         mouseY < 210) {
-          gameState = 1;
+          balls=[];
+          score=0;
+          gameLevel='';
+          gameState=1;
+
         }
 
       if(mouseIsPressed &&
@@ -119,7 +119,7 @@ function endGame() {
         mouseX < 300 &&
         mouseY > 110 &&
         mouseY < 210) {
-          gameState = 4;
+          remove();
           //clear();
           //background(5, 5, 5);
           //fill(255, 0, 0);
@@ -129,7 +129,7 @@ function endGame() {
     //add code to change back to startgame or exit the game
 }
 
-function playAgain() {
+function quitGame() {
   clear();
   background(5, 5, 5);
   fill(255, 0, 0);
@@ -137,6 +137,7 @@ function playAgain() {
   text('THE GAME', 200, 400);
   text('IS OVER!', 220, 500);
 }
+
 
 //  The draw function is called @ 30 fps
 function draw() {
@@ -148,8 +149,12 @@ function draw() {
   } else if(gameState === 3){
     endGame();
   } else if(gameState === 4) {
+    quitGame();
+  } else if(gameState === 5){
     playAgain();
-  }
+  } //else if(gameState === 6) {
+    //instructions();
+  //}
 
 }
 
