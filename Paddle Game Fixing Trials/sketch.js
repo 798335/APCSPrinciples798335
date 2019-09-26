@@ -8,6 +8,7 @@ var moreBalls = [];
 var gameState = 1;
 var score = 0;
 var gameLevel;
+var lives = 5;
 
 //create canvas and background
 
@@ -15,7 +16,8 @@ function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
-  fill(200, 30, 150);
+  //fill(200, 30, 150);
+  makeButtons();
 }
 //function drawPaddle() {
   //paddle = new Paddle(250, 700, 300, 25);
@@ -32,14 +34,10 @@ function draw() {
     gameMode();
   } else if(gameState === 3){
     endGame();
-  } //else if(gameState === 4) {
-    //quitGame();
-  //}
-  //else if(gameState === 5){
-    //playAgain();
-  //} //else if(gameState === 6) {
-    //instructions();
-  //}
+  }
+}
+
+function makeButtons() {
 
 }
 
@@ -47,7 +45,6 @@ function draw() {
 //displays buttons with different levels the player can choose from
 
 function startGame() {
-  //gameLevel = '';
   clear();
   background(5, 5, 5);
   textSize(90);
@@ -112,33 +109,31 @@ function gameMode(){
     fill(255, 0, 0);
     textSize(35);
     text('score:' + score, 30, 30);
+    text('lives:' + lives, 30, 70);
 
 //drops the balls down from the top and displays the paddle
     runBalls();
-    if (score === balls.length + score) {
+    if(score === balls.length + score) {
       gameState = 3;
     }
-
-      // if (score === 10 &&
-      //   gameLevel === 'easy') {
-      //   gameState = 3;
-      // }
-      if (score === 50 &&
-        gameLevel === 'medium') {
-        gameState = 3;
-      }
-      if (score === 200 &&
-        gameLevel === 'hard') {
-        gameState = 3;
-      }
+    if(lives === 0) {
+      gameState = 3;
+    }
   }
 
 function endGame() {
     clear();
     background(5, 5, 5);
-    textSize(100);
-    fill(255, 10, 10);
-    text('YOU WIN!!!', 130, 500);
+    if(score === balls.length + score)  {
+      textSize(100);
+      fill(255, 10, 10);
+      text('YOU WIN!!!', 130, 500);
+    }
+    if(lives === 0) {
+      fill(255, 0, 0);
+      textSize(100);
+      text('YOU LOST!', 120, 400);
+    }
     fill(50, 50, 50);
     rect(500, 110, 100, 100);
     rect(200, 110, 100, 100);
@@ -178,13 +173,13 @@ function endGame() {
 }//after the player has collected all of the balls in their level, their screen will change to This
 //allows player to play game again or quit
 
-function quitGame() {
+function loseGame() {
   clear();
   background(5, 5, 5);
   fill(255, 0, 0);
   textSize(70);
-  text('THE GAME', 200, 400);
-  text('IS OVER!', 220, 500);
+  text('YOU LOST!', 200, 400);
+  endGame();
 }
 
 function loadBalls(x) {

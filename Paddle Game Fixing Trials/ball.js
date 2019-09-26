@@ -53,28 +53,20 @@ class Ball {
       if(balls[i].isColliding() && this.vel.y > 0) {
           balls.splice(i, 1);
           score = score + 1;
-          // if (balls.length === 0) {
-          //   gameState = 3;
-          // }
         } else if(balls[i].isColliding() && this.vel.y < 0) {
           if(gameLevel==='easy') {
             loadBalls(10*2);
+            lives = lives - 1;
           }
           if(gameLevel==='medium') {
             loadBalls(50*2);
+            lives = lives - 1;
           }
           if(gameLevel==='hard') {
             loadBalls(200*2);
+            lives = lives - 1;
           }
         }
-
-      //if(balls[i].isColliding() && this.vel.y > 0) {
-          //score = score - 1;
-        //}
-      //else if(balls[i].isColliding()) {
-        //score = score - 1;
-        //this.vel.y = -this.vel.y;
-      //}
 }
 
     //makes the velocity have a limit so the balls don't get too fast
