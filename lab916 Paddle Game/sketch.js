@@ -1,27 +1,53 @@
 //  Your Name
 // 	Date or version number
 //  This is a comment
-//  The setup function function is called once when your program begins
+//  The setup function is called once when your program begins
 var paddle;
 var balls = [];
+var moreBalls = [];
 var gameState = 1;
 var score = 0;
 var gameLevel;
+
+//create canvas and background
+
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  //drawPaddle();
-  //loadBalls(10);
 }
-
 //function drawPaddle() {
   //paddle = new Paddle(250, 700, 300, 25);
   //Paddle.run();
 //}
 
+//  The draw function is called automatically @ 30 fps
+
+function draw() {
+  background(5, 5, 5, 50);
+  if (gameState === 1){
+    startGame();
+  } else if(gameState === 2){
+    gameMode();
+  } else if(gameState === 3){
+    endGame();
+  } //else if(gameState === 4) {
+    //quitGame();
+  //}
+  //else if(gameState === 5){
+    //playAgain();
+  //} //else if(gameState === 6) {
+    //instructions();
+  //}
+
+}
+
+//start screen of gameMode
+//displays buttons with different levels the player can choose from
+
 function startGame() {
+  //gameLevel = '';
   clear();
   background(5, 5, 5);
   textSize(90);
@@ -55,30 +81,48 @@ function startGame() {
     }
     if(gameLevel === 'easy'){
       loadBalls(10);
+      // if(score < 10) {
+      //   loadBalls(10);
+      // }
       //easyMode();
     }
     if(gameLevel==='medium'){
       loadBalls(50);
+      // if(score < 50) {
+      // loadBalls(50);
+      // }
       //mediumMode();
     }
     if(gameLevel==='hard'){
       loadBalls(200);
+    // if(score < 200) {
+    //   loadBalls(200);
+    //   }
       //hardMode();
     }
     gameState = 2;
   }
 }
 
+//when all of the balls have been collected for a level, screen switches to gameState 3
 
 function gameMode(){
+//displays a score in the game screen
+
     fill(255, 0, 0);
     textSize(35);
     text('score:' + score, 30, 30);
+
+//drops the balls down from the top and displays the paddle
     runBalls();
-      if (score === 10 &&
-        gameLevel === 'easy') {
-        gameState = 3;
-      }
+    if (score === balls.length + score) {
+      gameState = 3;
+    }
+
+      // if (score === 10 &&
+      //   gameLevel === 'easy') {
+      //   gameState = 3;
+      // }
       if (score === 50 &&
         gameLevel === 'medium') {
         gameState = 3;
@@ -107,11 +151,16 @@ function endGame() {
         mouseX < 600 &&
         mouseY > 110 &&
         mouseY < 210) {
-          balls=[];
-          score=0;
-          gameLevel='';
-          gameState=1;
+        score = 0;
+        gameState = 1;
+        balls = [];
+        gameLevel = '';
+        // startGame();
 
+        //   gameState = 1;
+        //   balls = [];
+        //   score = 0;
+        //   gameLevel = '';
         }
 
       if(mouseIsPressed &&
@@ -126,8 +175,8 @@ function endGame() {
           //textSize(70);
           //text('THE GAME IS OVER!', 200, 300);
         }
-    //add code to change back to startgame or exit the game
-}
+}//after the player has collected all of the balls in their level, their screen will change to This
+//allows player to play game again or quit
 
 function quitGame() {
   clear();
@@ -138,32 +187,18 @@ function quitGame() {
   text('IS OVER!', 220, 500);
 }
 
-
-//  The draw function is called @ 30 fps
-function draw() {
-  background(5, 5, 5, 50);
-  if (gameState === 1){
-    startGame();
-  } else if(gameState === 2){
-    gameMode();
-  } else if(gameState === 3){
-    endGame();
-  } else if(gameState === 4) {
-    quitGame();
-  } else if(gameState === 5){
-    playAgain();
-  } //else if(gameState === 6) {
-    //instructions();
-  //}
-
-}
-
 function loadBalls(x) {
   paddle = new Paddle(250, 700, 300, 25);
   for(var i = 0; i < x; i++){
-    balls[i] = new Ball(random(width), random(height), 5, 5);
+    balls[i] = new Ball(random(0, 800), random(0, 100), 5, 5);
   }
 }
+
+// // function addBalls(x) {
+// //   for(var i = 0; i < x; i++){
+// //     var moreBalls[i] = balls.push(new Ball(random(0, 800), random(0, 100), 5, 5));
+// //   }
+// }
 
 function runBalls(x) {
   paddle.run();
