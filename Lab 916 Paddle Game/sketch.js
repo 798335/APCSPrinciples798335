@@ -19,6 +19,9 @@ var buttonPlayAgain;
 var buttonEndGame;
 var buttonInstructions;
 var buttonBack;
+var numBallsEasy = 5;
+var numBallsMedium = 10;
+var numBallsHard = 15;
 
 //create canvas and background
 
@@ -99,13 +102,13 @@ function startGame() {
     //loads a different amount of balls depending on the game level that is selected
 
     if(gameLevel === 'easy'){
-      loadBalls(10);
+      loadBalls(numBallsEasy);
     }
     if(gameLevel==='medium'){
-      loadBalls(50);
+      loadBalls(numBallsMedium);
     }
     if(gameLevel==='hard'){
-      loadBalls(200);
+      loadBalls(numBallsHard);
     }
 }
 
@@ -244,7 +247,7 @@ function endGame() {
 function loadBalls(x) {
   paddle = new Paddle(250, 700, 300, 25);
   for(var i = 0; i < x; i++){
-    balls[i] = new Ball(random(0, 800), random(0, 100), 5, 5);
+    balls[i] = new Ball(random(0, 800), random(0, 100), random(1, 5), random(1, 5));
   }
 }
 

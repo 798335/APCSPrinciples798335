@@ -61,20 +61,20 @@ class Ball {
         } else if(balls[i].isColliding() && this.vel.y < 0) {
           lives = lives - 1;
           if(gameLevel==='easy') {
-            loadBalls(10*2);
+            loadBalls(numBallsEasy * 2);
           }
           if(gameLevel==='medium') {
-            loadBalls(50*2);
+            loadBalls(numBallsMedium * 2);
           }
           if(gameLevel==='hard') {
-            loadBalls(200*2);
+            loadBalls(numBallsHard * 2);
           }
         }
 }
 
     //makes the velocity have a limit so the balls don't get too fast
 
-    this.vel.limit(10);
+    this.vel.limit(7);
     this.vel.add(this.acc);
     this.loc.add(this.vel);
 
@@ -88,15 +88,15 @@ class Ball {
    //makes the balls faster than easy level
 
    if(gameLevel === 'medium') {
-     this.vel.x = this.vel.x * 1.5;
-     this.vel.y = this.vel.y * 1.5;
+     this.vel.x = this.vel.x * 1.1;
+     this.vel.y = this.vel.y * 1.1;
    }
 
    //makes the balls faster than medium level
 
    if(gameLevel === 'hard') {
-     this.vel.x = this.vel.x * 2;
-     this.vel.y = this.vel.y * 2;
+     this.vel.x = this.vel.x * 1.2;
+     this.vel.y = this.vel.y * 1.2;
    }
 
   }
