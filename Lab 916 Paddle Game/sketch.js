@@ -53,7 +53,6 @@ function draw() {
 //displays buttons with different levels the player can choose from
 
 function startGame() {
-  //gameLevel = '';
   lives = 5;
   clear();
   background(5, 5, 5);
