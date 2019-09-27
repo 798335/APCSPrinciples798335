@@ -1,6 +1,9 @@
+//  Gabby Melamed
+// 	09/16/19
+
 class Paddle {
 
-//passes in the values of the paddles
+  //passes in the values of the paddles
 
   constructor(x, y, w, h) {
     this.loc = createVector(x, y);
@@ -31,8 +34,3 @@ class Paddle {
     this.loc = p5.Vector.lerp(this.loc, paddleMouseLoc, 0.09);
   }
 }
-
-//var paddlewidth;
-//var paddleheight;
-//paddlewidth = this.loc2.x;
-//paddleheight = this.loc2.y;

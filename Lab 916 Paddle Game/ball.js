@@ -1,6 +1,9 @@
-//Gabrielle Melmamed
-//August 28, 2019
+//  Gabby Melamed
+// 	09/16/19
 class Ball {
+
+  //constructs values to pass into the balls
+
   constructor(x, y, dx, dy){
    this.loc = createVector(x, y);
    this.vel = createVector(dx, dy);
@@ -15,7 +18,6 @@ class Ball {
     this.render();
     this.checkedges();
     this.update();
-//    this.isColliding();
   }
 
 //makes each ball bounce when it reaches any edge of the canvas
@@ -57,6 +59,7 @@ class Ball {
           //   gameState = 3;
           // }
         } else if(balls[i].isColliding() && this.vel.y < 0) {
+          lives = lives - 1;
           if(gameLevel==='easy') {
             loadBalls(10*2);
           }
@@ -67,14 +70,6 @@ class Ball {
             loadBalls(200*2);
           }
         }
-
-      //if(balls[i].isColliding() && this.vel.y > 0) {
-          //score = score - 1;
-        //}
-      //else if(balls[i].isColliding()) {
-        //score = score - 1;
-        //this.vel.y = -this.vel.y;
-      //}
 }
 
     //makes the velocity have a limit so the balls don't get too fast
@@ -90,14 +85,14 @@ class Ball {
      this.vel.y = this.vel.y * 1;
    }
 
-   //makes the balls faster so that it is harder
+   //makes the balls faster than easy level
 
    if(gameLevel === 'medium') {
      this.vel.x = this.vel.x * 1.5;
      this.vel.y = this.vel.y * 1.5;
    }
 
-   //makes the balls even faster than medium
+   //makes the balls faster than medium level
 
    if(gameLevel === 'hard') {
      this.vel.x = this.vel.x * 2;
