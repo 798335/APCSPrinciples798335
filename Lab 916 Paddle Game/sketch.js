@@ -121,16 +121,16 @@ function instructions() {
   textSize(30);
   text('INSTRUCTIONS', 290, 50);
   textSize(18);
-  text('Welcome to The Paddle Game! Your score and lives are displayed in the top left corner.', 50, 100);
-  text('The goal of this game is to collect all of the balls on the screen.', 50, 130);
-  text('To collect the balls, move the paddle so that that ball(s) land on the paddle.', 50, 160);
-  text('When the ball(s) hit the top of the paddle, they will disappear.', 50, 190);
-  text('But, do not let the balls hit the bottom of the paddle.', 50, 220);
-  text('If they do, the remaining balls on the screen will disappear and more balls will appear.', 50, 250);
-  text('You will win the game when you have collected all of the balls on the screen', 50, 280);
-  text('Everytime a ball hits the bottom of the paddle, you will lose a life.', 50, 310);
-  text('You will start with 5 lives and once your lives = 0, you lose the game.', 50, 340);
-  text('After you have won or lost the game, you will have the option to quit or play again.', 50, 370);
+  text('Welcome to The Paddle Game! Your score and lives are displayed in the top left corner.', 10, 100);
+  text('The goal of this game is to collect all of the balls on the screen.', 10, 130);
+  text('To collect the balls, move the paddle so that that ball(s) land on the paddle.', 10, 160);
+  text('When the ball(s) hit the top of the paddle, they will disappear.', 10, 190);
+  text('But, do not let the balls hit the bottom of the paddle.', 10, 220);
+  text('Randomely, if they do, the remaining balls on the screen will disappear and more balls will appear.', 10, 250);
+  text('You will win the game when you have collected all of the balls on the screen', 10, 280);
+  text('Everytime new balls appear, you will lose a life.', 10, 310);
+  text('You will start with 5 lives and once your lives = 0, you lose the game.', 10, 340);
+  text('After you have won or lost the game, you will have the option to quit or play again.', 10, 370);
   text('Good luck!', 50, 400);
 
   //displays the back button
@@ -177,17 +177,18 @@ function gameMode(){
 
     runBalls();
 
+    //when all of the lives have been used, screen switches to gameState = 3
+
+    if(lives === 0) {
+      gameState = 3;
+    }
+
     //when all of the balls have been collected for a level, screen switches to gameState = 3
 
     if (score === balls.length + score) {
       gameState = 3;
     }
 
-    //when all of the lives have been used, screen switches to gameState = 3
-
-    if(lives === 0) {
-      gameState = 3;
-    }
   }
 
 //the end screen of the game

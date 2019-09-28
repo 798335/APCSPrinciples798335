@@ -58,10 +58,11 @@ class Ball {
           // if (balls.length === 0) {
           //   gameState = 3;
           // }
-        } else if(balls[i].isColliding() && this.vel.y < 0) {
+        }else if(balls[i].isColliding() && this.vel.y < 0) {
           lives = lives - 1;
           if(gameLevel==='easy') {
             loadBalls(numBallsEasy * 2);
+            //text('load more balls', 20, 20);
           }
           if(gameLevel==='medium') {
             loadBalls(numBallsMedium * 2);
@@ -69,6 +70,7 @@ class Ball {
           if(gameLevel==='hard') {
             loadBalls(numBallsHard * 2);
           }
+          //lives = lives - 1;
         }
 }
 
@@ -103,18 +105,31 @@ class Ball {
 
 //makes the ball know when it hits the paddle
 
-  isColliding() {
+   isColliding() {
     if(this.loc.x + 13 > paddle.loc.x &&
-        this.loc.x - 13 < paddle.loc.x + paddle.w &&
-        this.loc.y + 13 > paddle.loc.y &&
-        this.loc.y - 13 < paddle.loc.y + paddle.h)
-        {
-          return true;
+         this.loc.x - 13 < paddle.loc.x + paddle.w &&
+         this.loc.y + 13 > paddle.loc.y &&
+         this.loc.y - 13 < paddle.loc.y + paddle.h)
+         {
+           return true;
+           //this.vel.y = -this.vel.y;
+         } else {
+           return false;
+         }
+       }
+
+  //isColliding() {
+    //if((paddle.loc.x - (this.loc.x + 13)) < 0 &&
+      //(this.loc.x - (paddle.loc.x + paddle.w)) > 0 &&
+      //(paddle.loc.y - (this.loc.y + 13)) < 0 &&
+        //((this.loc.y - 13) - (paddle.loc.y + paddle.h)) > 0)
+        //{
+          //return true;
           //this.vel.y = -this.vel.y;
-        } else {
-          return false;
-        }
-      }
+        //} else {
+          //return false;
+        //}
+      //}
 
 //creates the ball
 
