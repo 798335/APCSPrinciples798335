@@ -27,23 +27,18 @@ class Ball {
   checkedges(){
     if(this.loc.x < 0){
       this.vel.x = -this.vel.x;
-      //this.loc.x = width; //when it hits side, warps to come out of other side
     }
 
     if(this.loc.x > width){
       this.vel.x = -this.vel.x;
-      //this.loc.x = 0;
     }
 
     if(this.loc.y < 0){
       this.vel.y = -this.vel.y;
-      //this.loc.y = height;//when it hits side, warps to come out of other side
     }
 
     if(this.loc.y > height){
       this.vel.y = -this.vel.y;
-      //this.loc.y = 0;
-
     }
   }
 
@@ -55,14 +50,10 @@ class Ball {
       if(balls[i].isColliding() && this.vel.y > 0) {
           balls.splice(i, 1);
           score = score + 1;
-          // if (balls.length === 0) {
-          //   gameState = 3;
-          // }
         }else if(balls[i].isColliding() && this.vel.y < 0) {
           lives = lives - 1;
           if(gameLevel==='easy') {
             loadBalls(numBallsEasy * 2);
-            //text('load more balls', 20, 20);
           }
           if(gameLevel==='medium') {
             loadBalls(numBallsMedium * 2);
@@ -70,7 +61,6 @@ class Ball {
           if(gameLevel==='hard') {
             loadBalls(numBallsHard * 2);
           }
-          //lives = lives - 1;
         }
 }
 
@@ -112,7 +102,6 @@ class Ball {
          this.loc.y - 13 < paddle.loc.y + paddle.h)
          {
            return true;
-           //this.vel.y = -this.vel.y;
          } else {
            return false;
          }
