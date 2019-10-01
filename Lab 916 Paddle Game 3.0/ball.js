@@ -64,21 +64,9 @@ class Ball {
       if(balls[i].isColliding() && this.vel.y > 0) {
           balls.splice(i, 1);
           score = score + 1;
-          // if (balls.length === 0) {
-          //   gameState = 3;
-          // }
         }else if(balls[i].isColliding() && this.vel.y < 0) {
           loadBalls(20);
           lives = lives - 1;
-          //if(gameLevel==='easy') {
-            //loadBalls(numBallsEasy * 2);
-          //}
-          //if(gameLevel==='medium') {
-            //loadBalls(numBallsMedium * 2);
-          //}
-          //if(gameLevel==='hard') {
-            //loadBalls(numBallsHard * 2);
-          //}
         }
 }
 
