@@ -1,5 +1,5 @@
-//  Your Name
-// 	Date or version number
+//  Gabby Melamed
+// 	09/16/19
 //  This is a comment
 //  The setup function is called once when your program begins
 
