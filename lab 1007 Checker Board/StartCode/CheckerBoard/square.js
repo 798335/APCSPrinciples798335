@@ -16,6 +16,7 @@ class Square {
   }
 
   render() {
+    fill(this.clr);
     rect(this.x, this.y, 100, 100);
   }
   //function Sqr(){
@@ -27,4 +28,3 @@ class Square {
     //}
 
   }//  End of Square constructor function
-}

@@ -7,7 +7,8 @@
 
 //  Global variables
 var squares = []  // declare b1 as a global variable
-
+var x = 0; //x position of 1st square
+var y = 0; //y position of 1st square
 
 // put setup code here
 function setup() {
@@ -23,6 +24,11 @@ function setup() {
 
 
 function loadSquares(){
+  for(var j = 0; i < 64; i++){
+    squares[i] = new Square(x, y, (255, 0, 0))
+    x = x + 100;
+    y = y + 100;
+  }
 
 }
 
