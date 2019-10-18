@@ -20,7 +20,7 @@ function setup() {
   loadList(10000);
   console.log(list);
   for(var i = 1; i < list.length; i++){
-    for(var j = list.length; j > 0; j--){
+    for(var j = i; j > 0; j--){
       if(list[j] < list[j - 1]){
         swap(list, j, j - 1);
       }
@@ -30,7 +30,6 @@ function setup() {
   var evenodd = list.length % 2;
   var halflengtheven = 0.5 * list.length;
   var halflengthodd = (0.5 * list.length) - 0.5;
-  //console.log(halflengthodd);
   var median = 0;
   if(evenodd === 0){
     median = (list[halflengtheven] + list[halflengtheven - 1])/2
