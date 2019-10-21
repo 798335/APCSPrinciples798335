@@ -16,11 +16,26 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadList(100);
+  loadList(10000);
   console.log(list);
   //add sortihng code//
+  for(var i = 0; i < list.length - 1; i++){
+    var index = i;
+    for(var j = i + 1; j < list.length; j++){
+      if(list[j] < list[index]){
+        index = j;
+      }
+    }
+    swap(list, index, i);
+  }
+  console.log(list);
+}
 
 
+function swap(list, a, b) {//swaps two variables
+  var temp = list[a];
+  list[a] = list[b];
+  list[b] = temp;
 }
 
 //  The draw function is called @ 30 fps
