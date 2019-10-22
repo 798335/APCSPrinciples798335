@@ -23,20 +23,20 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(200, 30, 150);
-  loadList(100);
-  console.log(list);
+  loadList(10);
+  console.log('unsorted list: ' + list);
   bubbleSort();
-  console.log(list);
+  console.log('Bubble Sort sorted list: ' + list);
   list = [];
-  loadList(100);
-  console.log(list);
+  loadList(10);
+  console.log('unsorted list: ' + list);
   insertionSort();
-  console.log(list);
+  console.log('Insertion Sort sorted list: ' + list);
   list = [];
-  loadList(100);
-  console.log(list);
+  loadList(10);
+  console.log('unsorted list: ' + list);
   selectionSort();
-  console.log(list);
+  console.log('Selection Sort sorted list: ' + list);
 
 
 }
