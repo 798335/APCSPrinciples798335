@@ -1,8 +1,8 @@
 class Bar {
 
-  constructor(x, h){
+  constructor(x, w, h){
     this.x = x;
-    this.w = 80;
+    this.w = w;
     this.h = h;
     this.y = 800 - this.h;
     this.clr = color(250, 218, 221);
