@@ -17,8 +17,8 @@ function setup() {
   background(5, 5, 5);
   fill(200, 30, 150);
   loadList(10);//loads an unsorted list of numbers
-  showBars();//displays bars on the screen with heights that are in order of the array of numbers
-  console.log(list);
+  //showBars();//displays bars on the screen with heights that are in order of the array of numbers
+  // console.log(list);
 }
 
 function draw() {
@@ -31,18 +31,30 @@ function bubbleSort() {
     for(var j = 0; j < list.length; j++){
       if(list[j] > list[j + 1]){
         swap(list, j, j + 1);
-        clear();
         background(5, 5, 5);
-        swap(bars, j, j + 1);
         //frameRate(10);
-        showBars();
+        //swap(bars, j, j + 1);
+        //wait(300);
+        showBars(list);
+        console.log(list);
+        //clear();
         }
     }
   }
-  console.log(list);
+  //console.log(list);
 }
 
-function showBars() {
+function wait(ms)
+{
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); }
+while(d2-d < ms);
+}
+
+
+function showBars(list) {//makes all of the bars appear with a fixed width and a height accodring to the vallue of that number index in the array
+  console.log("showBars start");
   var xpos = 0;
   var bars = [bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, bar10];
   var bar1 = new Bar(xpos, list[0] * 80);
@@ -65,9 +77,10 @@ function showBars() {
   bar8.render();
   bar9.render();
   bar10.render();
+  console.log("showBars finish");
 }
 
-function swap(list, a, b) {
+function swap(list, a, b) {//swaps two numbers in an array
   var temp = list[a];
   list[a] = list[b];
   list[b] = temp;
