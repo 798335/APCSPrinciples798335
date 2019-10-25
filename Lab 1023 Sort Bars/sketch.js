@@ -29,9 +29,11 @@ function setup() {
 
 function draw() {
   background(5, 5, 5);
+  //frameRate(10);
   runBars();
   bubbleSort();
   //console.log(list);
+
 }
 
 function bubbleSort() {
@@ -43,50 +45,19 @@ function bubbleSort() {
         background(5, 5, 5);
         swap(bars, j, j + 1);
         //frameRate(10);
-        //loadBars();
-        //runBars();
+        loadBars(numBars);
+        runBars();
 
         }
-        //loadBars();
-        //runBars();
-        console.log(list);
-        loadBars();
-        runBars();
-          }
+      }
   }
-//  console.log(list);
-  //loadBars();
-//  runBars();
+  //console.log(list);
 }
 
 function loadBars(num) {
-  //var xpos = 0;
-  //var bars = [bar1, bar2, bar3, bar4, bar5, bar6, bar7, bar8, bar9, bar10];
-  //var bar1 = new Bar(xpos, list[0] * 80);
-  //var bar2 = new Bar(xpos + 80, list[1] * 80);
-  //var bar3 = new Bar(xpos + (80 * 2), list[2] * 80);
-  //var bar4 = new Bar(xpos + (80 * 3), list[3] * 80);
-  //var bar5 = new Bar(xpos + (80 * 4), list[4] * 80);
-  //var bar6 = new Bar(xpos + (80 * 5), list[5] * 80);
-  //var bar7 = new Bar(xpos + (80 * 6), list[6] * 80);
-  //var bar8 = new Bar(xpos + (80 * 7), list[7] * 80);
-  //var bar9 = new Bar(xpos + (80 * 8), list[8] * 80);
-  //var bar10 = new Bar(xpos + (80 * 9), list[9] * 80);
-  //bar1.render();
-  //bar2.render();
-  //bar3.render();
-  //bar4.render();
-  //bar5.render();
-  //bar6.render();
-  //bar7.render();
-  //bar8.render();
-  //bar9.render();
-  //bar10.render();
-
 for(var i = 0; i < num; i++){
   var barHeight = list[i] * 80;
   var xpos = 0 + barWidth * i;
-  //var hbars = list[i] * 80
   bars[i] = new Bar(xpos, barWidth, barHeight);
 }
 

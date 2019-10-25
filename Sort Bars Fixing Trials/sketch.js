@@ -1,5 +1,5 @@
 //  Gabby Melamed
-// 	Lab 1023 Sort Bars
+// 	Sort Bars Fixing Trials
 //  This is a comment
 //  The setup function function is called once when your program begins
 
