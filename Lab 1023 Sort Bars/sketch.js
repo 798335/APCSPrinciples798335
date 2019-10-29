@@ -25,6 +25,7 @@ function setup() {
   loadBars(numBars);//displays bars on the screen with heights that are in order of the array of numbers
   //runBars();
   console.log(list);
+  frameRate(5);
 }
 
 function draw() {
@@ -37,7 +38,7 @@ function draw() {
 }
 
 function bubbleSort() {
-  for(var i = 0; i < list.length; i++){
+  //for(var i = 0; i < list.length; i++){
     for(var j = 0; j < list.length; j++){
       if(list[j] > list[j + 1]){
         swap(list, j, j + 1);
@@ -50,7 +51,7 @@ function bubbleSort() {
 
         }
       }
-  }
+  //}
   //console.log(list);
 }
 
