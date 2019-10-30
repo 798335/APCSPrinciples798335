@@ -15,62 +15,51 @@ function loadList(n){
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(5, 5, 5);
+  background(255, 182, 193);
 
   barWidth = 20;
   numBars = width/barWidth;
 
-  fill(200, 30, 150);
   loadList(numBars);//loads an unsorted list of numbers
   loadBars(numBars);//displays bars on the screen with heights that are in order of the array of numbers
-  //runBars();
   console.log(list);
   frameRate(5);
 }
 
 function draw() {
-  background(5, 5, 5);
-  //frameRate(10);
-  runBars();
-  bubbleSort();
-  //console.log(list);
-
+  background(255, 182, 193);
+  runBars();//makes the bars appear
+  bubbleSort();//sorts the bars and the list
 }
 
 function bubbleSort() {
-  //for(var i = 0; i < list.length; i++){
     for(var j = 0; j < list.length; j++){
       if(list[j] > list[j + 1]){
-        swap(list, j, j + 1);
+        swap(list, j, j + 1);//swaps numbers in the list
         clear();
-        background(5, 5, 5);
-        swap(bars, j, j + 1);
-        //frameRate(10);
+        background(255, 182, 193);
+        swap(bars, j, j + 1);//swaps bars
         loadBars(numBars);
         runBars();
-
         }
-      }
-  //}
-  //console.log(list);
+    }
 }
 
-function loadBars(num) {
+function loadBars(num) { //prepares the bars to show up
 for(var i = 0; i < num; i++){
   var barHeight = list[i] * 80;
   var xpos = 0 + barWidth * i;
   bars[i] = new Bar(xpos, barWidth, barHeight);
+  }
 }
 
-}
-
-function runBars() {
+function runBars() { //makes the bars show up
   for(var i = 0; i < bars.length; i++){
     bars[i].render();
   }
 }
 
-function swap(list, a, b) {
+function swap(list, a, b) {//swaps two values in array
   var temp = list[a];
   list[a] = list[b];
   list[b] = temp;
