@@ -20,6 +20,12 @@ class Snake {
 
   }
 
+keyReleased() {
+  if(keyCode === UP_ARROW) {
+    this.loc.y = this.loc.y - this.h;
+  }
+}
+
   //keyPressed() {
     //if(keyCode === UP_ARROW) {
       //this.loc.add(this.loc.x+15)
