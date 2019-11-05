@@ -33,7 +33,7 @@ keyReleased() {
 if(keyCode === RIGHT_ARROW) {
   this.loc.x = this.loc.x + this.w;
   }
-  }
+}
 
   checkEdges() {
     if(this.loc.x > 800 ||

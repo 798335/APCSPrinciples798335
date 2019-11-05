@@ -11,7 +11,7 @@ function setup() {
   background(5, 5, 5);
   fill(114, 100, 100);
   frameRate(10);
-  loadSnakes(1);
+  //loadSnakes(1);
   makeButtons();
 }
 
@@ -27,15 +27,6 @@ function draw() {
   }//else if(gameState === 4){
     //instructions();
   //}
-  for(var i = 0; i < snake.length; i++) {
-    snake[i].run();
-  }
-}
-
-function loadSnakes(n) {
-  for(var i = 0; i < n; i++) {
-    snake[i] = new Snake(20 + i, 20 + i, 15, 15);
-  }
 }
 
 function startGame() {
@@ -49,17 +40,27 @@ function startGame() {
     if(mouseX > 450 &&
     mouseX < 300 &&
     mouseY > 450 &&
-    mouseY < 300) {
+    mouseY < 300){
       gameState = 2;
     }
+  }
 }
 
 function gameMode() {
   clear();
   background(5, 5, 5);
+  loadSnakes(1);
+  for(var i = 0; i < snake.length; i++) {
+    snake[i].run();
+  }
+}
+
+function loadSnakes(n) {
+  for(var i = 0; i < n; i++) {
+    snake[i] = new Snake(20 + i, 20 + i, 15, 15);
+  }
 }
 
 function makeButtons() {
-  buttonStart = new Button(300, 300, 'START GAME');
-  //buttonStart.run();
+  buttonStart = new Button(350, 350, 'START GAME');
 }
