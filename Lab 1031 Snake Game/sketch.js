@@ -4,6 +4,7 @@
 //  The setup function function is called once when your program begins
 var snake = [];
 var gameState = 1;
+var buttonStart;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -11,6 +12,7 @@ function setup() {
   fill(114, 100, 100);
   frameRate(10);
   loadSnakes(1);
+  makeButtons();
 }
 
 //  The draw function is called @ 30 fps
@@ -22,17 +24,17 @@ function draw() {
     gameMode();
   }else if(gameState === 3){
     endGame();
-  }else if(gameState === 4){
-    instructions();
-  }
-  for(var i = 0; i < 1; i++) {
+  }//else if(gameState === 4){
+    //instructions();
+  //}
+  for(var i = 0; i < snake.length; i++) {
     snake[i].run();
   }
 }
 
 function loadSnakes(n) {
   for(var i = 0; i < n; i++) {
-    snake[i] = new Snake(20, 20, 15, 15);
+    snake[i] = new Snake(20 + i, 20 + i, 15, 15);
   }
 }
 
@@ -42,4 +44,22 @@ function startGame() {
   textSize(90);
   fill(255, 255, 255);
   text('The Snake Game', 30, 200);
+  buttonStart.run();
+  if(mouseIsPressed) {
+    if(mouseX > 450 &&
+    mouseX < 300 &&
+    mouseY > 450 &&
+    mouseY < 300) {
+      gameState = 2;
+    }
+}
+
+function gameMode() {
+  clear();
+  background(5, 5, 5);
+}
+
+function makeButtons() {
+  buttonStart = new Button(300, 300, 'START GAME');
+  //buttonStart.run();
 }
