@@ -16,7 +16,15 @@ class Food {
   }
 
   update() {
-    if(this.food.x === this.snake.x &&
-      this.food.x+30 === this.snake.x)
+    if(this.food.x === snake.x &&
+      this.food.x + 30 === snake.x &&
+      this.food.y === snake.y &&
+      this.food.y + 30 === snake.y &&
+      snake.x + 15 === this.food.x &&
+      snake.y + 15 === this.food.y &&
+      snake.x + 15 === this.food.x + 30 &&
+      snake.y + 15 === this.food.y + 30){
+        var newfood = new Food(random(100, 700), random(100, 700));
+      }
   }
 }

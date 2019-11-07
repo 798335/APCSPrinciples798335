@@ -6,6 +6,7 @@ var snake = [];
 var food;
 var gameState = 1;
 var buttonStart;
+var x = 0;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
