@@ -3,7 +3,7 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var snake = [];
-var food;
+var food = [];
 var gameState = 1;
 var buttonStart;
 var x = 0;
@@ -23,7 +23,7 @@ function draw() {
   for(var i = 0; i < snake.length; i++) {
     snake[i].run();
   }
-  food.run();
+  food[i].run();
   //if(gameState === 1){
     //startGame();
   //}else if(gameState === 2){
@@ -64,7 +64,7 @@ function draw() {
 function loadObjects(n) {
   for(var i = 0; i < n; i++) {
     snake[i] = new Snake(20 + i, 20 + i, 15, 15);
-    food = new Food(random(100, 500), random(100, 500));
+    food[i] = new Food(random(100, 700), random(100, 700));
   }
 }
 
