@@ -7,12 +7,8 @@ class Snake {
   }
 
   run() {
-    this.update();
     this.render();
-  }
-
-  update() {
-    this.keyReleased();
+    this.update();
   }
 
   render() {
@@ -20,7 +16,11 @@ class Snake {
     rect(this.head.x, this.head.y, this.w, this.h);
   }
 
-keyReleased() {
+  update() {
+    this.keyReleased();
+  }
+
+  keyReleased() {
   if(keyCode === UP_ARROW) {
     this.head.y = this.head.y - this.h;
   }
@@ -32,8 +32,8 @@ keyReleased() {
   }
 if(keyCode === RIGHT_ARROW) {
   this.head.x = this.head.x + this.w;
+    }
   }
-}
 
   checkEdges() {
     if(this.head.x > 800 ||
