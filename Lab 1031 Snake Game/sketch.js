@@ -12,7 +12,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(114, 100, 100);
-  frameRate(5);
+  frameRate(20);
   loadObjects(1);
   //makeButtons();
 }
