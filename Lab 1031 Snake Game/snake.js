@@ -3,6 +3,7 @@ class Snake {
     this.head = createVector(x, y);
     this.w = w;
     this.h = h;
+    //this.body = [];
     //this.clr = color(255, 0, 0);
   }
 
