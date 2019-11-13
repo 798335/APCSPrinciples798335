@@ -28,7 +28,7 @@ class Food {
         this.food.x = random(100, 700);
         this.food.y = random(100, 700);
         this.render();
-        snake.body.push(createVector(10, 10));
+        snake.body.push(createVector(random(0, 800), random(0, 800)));
         //snake.render();
       }
     }
