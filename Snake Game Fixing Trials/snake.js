@@ -39,9 +39,9 @@ class Snake {
   update() {
     this.keyReleased();
     for(var i = this.body.length - 1; i > 0; i--){
-        this.body[i].x = this.body[i - 1].x;
-        this.body[i].y = this.body[i - 1].y;
-        this.renderbody();
+        //this.body[i].x = this.head.x;
+        //this.body[i].y = this.head.y;
+        this.renderbody(i);
     }
     this.head.add(this.vel);
 

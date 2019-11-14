@@ -28,8 +28,8 @@ class Food {
         this.food.x = random(100, 700);
         this.food.y = random(100, 700);
         this.render();
-        snake.body.push(createVector(random(0, 800), random(0, 800)));
-        //snake.render();
+        snake.body.push(createVector(snake.head.x + 15, snake.head.y + 15));
+        snake.update();
       }
     }
   }
