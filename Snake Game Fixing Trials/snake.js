@@ -38,13 +38,18 @@ class Snake {
 
   update() {
     this.keyReleased();
+    //this.body[0].x = this.head.x;
+    //this.body[0].y = this.head.y;
+    //this.renderbody();
     for(var i = this.body.length - 1; i > 0; i--){
-        //this.body[i].x = this.head.x;
-        //this.body[i].y = this.head.y;
-        this.renderbody(i);
+      this.body[i].x = this.head.x;
+      this.body[i].y = this.head.y;
+      this.body[i - 1].x = this.body[i].x;
+      this.body[i - 1].y = this.body[i].y;
+      //this.renderbody();
     }
     this.head.add(this.vel);
-
+    this.renderbody();
   }
 
   keyReleased() {
