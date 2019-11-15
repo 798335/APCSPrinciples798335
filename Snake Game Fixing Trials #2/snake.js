@@ -11,6 +11,7 @@ class Snake {
   run() {
     this.renderhead();
     this.update();
+    this.checkEdges();
   }
 
   loadBody(){
@@ -81,12 +82,12 @@ if(keyCode === RIGHT_ARROW) {
     }
   }
 
-  //checkEdges() {
-    //if(this.head.x > 800 ||
-      //this.head.x < 0 ||
-      //this.head.y > 800 ||
-      //this.head.y < 0){
-        //gameState = 3;
-      //}
-  //}
+  checkEdges() {
+    if(this.head.x > 800 ||
+      this.head.x < 0 ||
+      this.head.y > 800 ||
+      this.head.y < 0){
+        gameState = 3;
+      }
+  }
 }

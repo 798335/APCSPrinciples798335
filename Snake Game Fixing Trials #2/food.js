@@ -21,14 +21,17 @@ class Food {
     var i = 0;
 //snake vs. food collision
 
-    if(snake[i].head.x + 15 >= this.food.x &&
-        snake[i].head.x <= this.food.x + this.w &&
-        snake[i].head.y + 15 >= this.food.y &&
-        snake[i].head.y <= this.food.y + this.h){
+    if(snake.head.x + 15 >= this.food.x &&
+        snake.head.x <= this.food.x + this.w &&
+        snake.head.y + 15 >= this.food.y &&
+        snake.head.y <= this.food.y + this.h){
         this.food.x = random(100, 700);
         this.food.y = random(100, 700);
         this.render();
-        
+        snake.loadBody();
       }
     }
+
   }
+
+//need to keep working
