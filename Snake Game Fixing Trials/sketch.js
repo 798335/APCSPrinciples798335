@@ -13,16 +13,16 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(114, 100, 100);
-  frameRate(10);
-  //loadObjects();
-  makeButtons();
+  //frameRate(10);
+  loadObjects();
+//  makeButtons();
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   background(5, 5, 5);
-  //snake.run();
-  //food.run();
+  snake.run();
+  food.run();
   if(gameState === 1){
     startGame();
   }else if(gameState === 2){
@@ -67,7 +67,11 @@ function makeButtons(){
 function startGame(){
   clear();
   fill(0);
+  makeButtons();
   startButton.run();
+  fill(255, 105, 180);
+  textSize(75);
+  text('SKINNY SNAKE', 150, 200);
   if(mouseIsPressed &&
     mouseX > 300 &&
     mouseX < 450 &&
@@ -78,11 +82,11 @@ function startGame(){
 }
 
 function gameMode(){
-  clear();
+  //clear();
   fill(0);
-  loadObjects();
-  snake.run();
-  food.run();
+  //loadObjects();
+  //snake.run();
+  //food.run();
 }
 
 function endGame(){
