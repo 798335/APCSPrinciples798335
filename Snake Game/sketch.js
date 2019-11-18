@@ -66,7 +66,7 @@ function endGame(){
   rect(100, 500, 600, 200);
   fill(255);
   textSize(50);
-  text("YOU DIED", 200, 550);
+  text("GAME OVER", 250, 600);
 }
 
 function loadObjects() {

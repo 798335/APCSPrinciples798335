@@ -7,28 +7,29 @@ var food;
 var gameState = 1;
 var buttonStart;
 var x = 0;
+var startButton;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(5, 5, 5);
   fill(114, 100, 100);
-  //frameRate(10);
-  loadObjects();
-  //makeButtons();
+  frameRate(10);
+  //loadObjects();
+  makeButtons();
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
   background(5, 5, 5);
-  snake.run();
-  food.run();
-  //if(gameState === 1){
-    //startGame();
-  //}else if(gameState === 2){
-    //gameMode();
-  //}else if(gameState === 3){
-    //endGame();
-  //}//else if(gameState === 4){
+  //snake.run();
+  //food.run();
+  if(gameState === 1){
+    startGame();
+  }else if(gameState === 2){
+    gameMode();
+  }else if(gameState === 3){
+    endGame();
+  }//else if(gameState === 4){
     //instructions();
   //}
 }
@@ -58,6 +59,40 @@ function draw() {
     //snake[i].run();
   //}
 //}
+
+function makeButtons(){
+  startButton = new Button(300, 300, 'START');
+}
+
+function startGame(){
+  clear();
+  fill(0);
+  startButton.run();
+  if(mouseIsPressed &&
+    mouseX > 300 &&
+    mouseX < 450 &&
+    mouseY > 300 &&
+    mouseY < 450){
+      gameState = 2;
+    }
+}
+
+function gameMode(){
+  clear();
+  fill(0);
+  loadObjects();
+  snake.run();
+  food.run();
+}
+
+function endGame(){
+  clear();
+  fill(0);
+  rect(100, 500, 600, 200);
+  fill(255);
+  textSize(50);
+  text("GAME OVER", 250, 600);
+}
 
 function loadObjects() {
     snake = new Snake(20, 20, 15, 15);
