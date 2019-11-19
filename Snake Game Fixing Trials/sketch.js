@@ -7,7 +7,7 @@ var food;
 var gameState = 1;
 var buttonStart;
 var x = 0;
-var startButton;
+var startButton, replayButton;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -62,6 +62,7 @@ function draw() {
 
 function makeButtons(){
   startButton = new Button(300, 300, 'START');
+  replayButton = new Button(100, 100, 'REPLAY');
 }
 
 function startGame(){
@@ -71,7 +72,11 @@ function startGame(){
   startButton.run();
   fill(255, 105, 180);
   textSize(75);
-  text('SKINNY SNAKE', 150, 200);
+  text('SKINNY SNAKE', 150, 150);
+  textSize(15);
+  text('Welcome to Skinny Snake! The snake is the pink square. Try to eat the red food by moving the snake ', 60, 225);
+  text('with the arrow keys. Everytime you eat the food, your snake will grow a little bit. But NOT ', 60, 250);
+  text('too much because it is a SKINNY SNAKE! If the snake goes off the screen the game will end. Good luck!', 60, 275)
   if(mouseIsPressed &&
     mouseX > 300 &&
     mouseX < 450 &&
@@ -82,20 +87,24 @@ function startGame(){
 }
 
 function gameMode(){
-  //clear();
   fill(0);
-  //loadObjects();
-  //snake.run();
-  //food.run();
 }
 
 function endGame(){
   clear();
   fill(0);
+  replayButton.run();
   rect(100, 500, 600, 200);
   fill(255);
   textSize(50);
   text("GAME OVER", 250, 600);
+  if(mouseIsPressed &&
+    mouseX > 100 &&
+    mouseX < 250 &&
+    mouseY > 100 &&
+    mouseY < 250){
+      gameState = 1;
+    }
 }
 
 function loadObjects() {

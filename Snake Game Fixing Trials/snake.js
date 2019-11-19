@@ -33,12 +33,12 @@ class Snake {
     this.keyReleased();
 
     for(var i = this.body.length - 1; i >= 0; i--){
-      if ( i === 0){
+      if (i === 0){
       this.body[i].x = this.head.x;
       this.body[i].y = this.head.y;
-    }else if(i>0){
-      this.body[i].x = this.body[i-1].x;
-      this.body[i].y = this.body[i-1].y;
+    }else if(i > 0){
+      this.body[i].x = this.body[i - 1].x;
+      this.body[i].y = this.body[i - 1].y;
     }
       //this.renderbody();
     }
