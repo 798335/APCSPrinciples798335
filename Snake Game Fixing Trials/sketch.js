@@ -103,7 +103,7 @@ function endGame(){
     mouseX < 250 &&
     mouseY > 100 &&
     mouseY < 250){
-      gameState = 1;
+      gameState = 1;//idk why this is not working
     }
 }
 
