@@ -88,29 +88,36 @@ function startGame(){
 
 function gameMode(){
   fill(0);
+  checkTangled();
 }
 
 function endGame(){
   clear();
   fill(0);
-  replayButton.run();
+  //replayButton.run();
   rect(100, 500, 600, 200);
   fill(255);
   textSize(50);
   text("GAME OVER", 250, 600);
-  if(mouseIsPressed &&
-    mouseX > 100 &&
-    mouseX < 250 &&
-    mouseY > 100 &&
-    mouseY < 250){
-      gameState = 1;//idk why this is not working
-    }
+  //if(mouseIsPressed &&
+    //mouseX > 100 &&
+    //mouseX < 250 &&
+    //mouseY > 100 &&
+    //mouseY < 250){
+      //gameState = 1;//idk why this is not working
+    //}
 }
 
 function loadObjects() {
     snake = new Snake(20, 20, 15, 15);
     food = new Food(random(100, 700), random(100, 700));
 
+}
+
+function checkTangled(){
+  if(snake.tangled() === true){
+    gameState = 3;
+  }
 }
 
 //function makeButtons() {

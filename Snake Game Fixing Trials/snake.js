@@ -46,6 +46,15 @@ class Snake {
     this.renderbody();
   }
 
+  tangled(){
+    //for loop that checks to see where each segment in the array is;
+    for(var i = 1; i < this.body.length; i++){
+      if(this.head.x == this.body[i].x && this.head.y == this.body[i].y){
+        return true;
+      }
+    }
+  }
+
   keyReleased() {
   if(keyCode === UP_ARROW) {
     this.vel.x = 0;

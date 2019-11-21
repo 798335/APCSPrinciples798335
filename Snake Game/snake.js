@@ -5,7 +5,6 @@ class Snake {
     this.h = h;
     this.body = [];
     this.vel = createVector(0, 0);
-    //this.clr = color(255, 0, 0);
   }
 
   run() {
@@ -15,20 +14,13 @@ class Snake {
   }
 
   loadBody(){
-        this.body.push(createVector(this.head.x, this.head.y));
+        this.body.push(createVector(this.head.x + 15, this.head.y + 15));
       }
 
   renderhead() {
     fill(255, 97, 181);
     rect(this.head.x, this.head.y, this.w, this.h);
   }
-
-  //renderbody() {
-    //for(var i = this.body.length - 1; i >= 0; i--){
-      //fill(255, 97, 181);
-      //rect(this.body[i].x, this.body[i].y, this.w, this.h);
-    //}
-  //}
 
   renderbody() {
     fill(255, 97, 181);
@@ -39,19 +31,14 @@ class Snake {
 
   update() {
     this.keyReleased();
-    //this.body[0].x = this.head.x;
-    //this.body[0].y = this.head.y;
-    //this.renderbody();
-
-
 
     for(var i = this.body.length - 1; i >= 0; i--){
-      if ( i === 0){
+      if (i === 0){
       this.body[i].x = this.head.x;
       this.body[i].y = this.head.y;
-    }else if(i>0){
-      this.body[i].x = this.body[i-1].x;
-      this.body[i].y = this.body[i-1].y;
+    }else if(i > 0){
+      this.body[i].x = this.body[i - 1].x;
+      this.body[i].y = this.body[i - 1].y;
     }
       //this.renderbody();
     }
